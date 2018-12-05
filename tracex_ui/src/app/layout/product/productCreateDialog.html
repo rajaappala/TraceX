@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Add Product</h1>
+<!-- <button type="button" class="close" aria-label="Close" (click)="onNoClick()">
+        <span aria-hidden="true">&times;</span>
+    </button> -->
+<div mat-dialog-content>
+  <div class="row">
+      <div class="card card-ex card-blue col-md-12">
+        <!-- <div class="card-separator"></div> -->
+        <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && ! name.valid }">
+                <label for="name">Drug name</label>
+                <input type="text" class="form-control input-underline input-lg" name="name" [(ngModel)]="data.name" #name="ngModel" required />
+                <div *ngIf="f.submitted && !name.valid" class="help-block">name is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+                <label for="description">Description</label>
+                <input type="text" class="form-control input-underline input-lg" name="description" [(ngModel)]="data.description" #description="ngModel" required />
+                <div *ngIf="f.submitted && !description.valid" class="help-block">description is required</div>
+            </div>
+            <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !disease.valid }">
+                <label for="disease">Disease Name</label>
+                <input type="text" class="form-control input-underline input-lg" name="disease" [(ngModel)]="model.disease" #disease="ngModel" required />
+                <div *ngIf="f.submitted && !disease.valid" class="help-block">disease is required</div>
+            </div> -->
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !units.valid }">
+                <label for="units">Available Quantity</label>
+                <input type="number" class="form-control input-underline input-lg" name="units" [(ngModel)]="data.units" #units="ngModel" required />
+                <div *ngIf="f.submitted && !units.valid" class="help-block">quantity is required</div>
+            </div>
+            <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !drugImage.valid }">
+                <label for="drugImage">Drug Image</label>
+                <input type="file" class="form-control input-underline input-lg" name="drugImage" [(ngModel)]="model.drugImage" #drugImage="ngModel" />
+                <div *ngIf="f.submitted && !drugImage.valid" class="help-block">image is required</div>
+            </div> -->
+            <!-- <br>
+            <hr> -->
+            <div mat-dialog-actions class="pull-right">
+              <div class="form-group">
+                  <a class="btn rounded-btn" (click)="onNoClick()">Cancel</a>
+                  <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
+                  <button type="submit" [mat-dialog-close]="data" class="btn rounded-btn">Submit</button>
+              </div>
+            </div>
+        </form>
+        <div class="card-separator"></div>
+      </div>
+    </div>
+</div>
+<!-- <div mat-dialog-actions class="pull-right">
+  <button _ngcontent-c4="" class="btn btn-sm btn-default">Close</button>
+  &nbsp;&nbsp;<button class="btn btn-sm btn-info" [mat-dialog-close]="data.transferTo">Submit</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Submit</button>
+</div> -->

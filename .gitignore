@@ -1,0 +1,49 @@
+tracex_api/node_modules/
+tracex_api/*/dist/
+tracex_api/.lock
+tracex_api/.vscode
+tracex_api/yarn.lock
+tracex_api/package-lock.json
+tracex_api/build/
+tracex_api/webserver/yarn.lock
+tracex_api/webserver/dist
+tracex_api/webserver/logs
+tracex_api/webserver/npm-debug.log
+tracex_api/webserver/node_modules
+tracex_api/.DS_Store
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+tracex_ui/tmp
+tracex_ui/out-tsc
+
+# dependencies
+tracex_ui/node_modules
+
+# IDEs and editors
+tracex_ui/.idea
+tracex_ui/.project
+tracex_ui/.classpath
+tracex_ui/.c9/
+tracex_ui/*.launch
+tracex_ui/.settings/
+tracex_ui/*.sublime-workspace
+
+# misc
+tracex_ui/.sass-cache
+tracex_ui/connect.lock
+tracex_ui/coverage
+tracex_ui/libpeerconnection.log
+tracex_uinpm-debug.log
+tracex_ui/testem.log
+tracex_ui/typings
+
+# e2e
+tracex_ui/e2e/*.js
+tracex_ui/e2e/*.map
+
+# System Files
+tracex_ui/.DS_Store
+tracex_ui/Thumbs.db
+tracex_ui/package-lock.json

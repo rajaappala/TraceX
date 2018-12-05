@@ -1,0 +1,79 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Dashboard'" [icon]="'fa-list-alt'"></app-page-header>
+    <alert></alert>
+    <div *ngIf="loading" class="alert alert-info">Please wait, the request is being processed...<img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></div>
+    <div class="col col-lg-12">
+        <div class="card" *ngIf="isadmin">
+            <div class="card-header">Pending Signups</div>
+            <div class="card-body table-responsive">
+                <table class="table table-hover table-bordered table-striped" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Name</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngIf="users?.result">
+                        <tr *ngFor="let user of users.result; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.role}}</td>
+                            <td>{{user.userStatus}}</td>
+                            <td><button class="btn btn-sm btn-primary rounded-btn btn-txt-color" *ngIf="user.userStatus !== 'Active'" (click)="user_approval(user._id,true)"><i class="btn-margin fa fa-check"></i>Approve</button>
+                                &nbsp;&nbsp;<button class="btn btn-sm rounded-btn reject-btn btn-txt-color" *ngIf="user.userStatus !== 'Active'" (click)="user_approval(user._id,false)"><i class="btn-margin fa fa-times"></i>Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div *ngIf="!(role=='Admin' || role=='Manufacturer')">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <button class="btn btn-primary pull-right" (click)="showRecieveDialog()">Receive Product</button>
+                </div>
+            </div>
+        </div>
+        <div class="card" *ngIf="!isadmin">
+            <div class="card-header">Your Products</div>
+                <div class="card-body">
+                    <table class="table table-hover table-bordered table-striped" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Drug Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <!-- <th>Status</th> -->
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngIf="products?.result">
+                        <tr *ngFor="let product of products.result">
+                            <td>{{product.name}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.units}}</td>
+                            <!-- <td>{{product.product_status}}</td> -->
+                            <td><button class="btn btn-sm btn-info" (click)="showDetailsDialog(product)">Details</button>
+                            &nbsp;&nbsp;<button *ngIf="!(role=='Retailer') && (product.currentOwner._id == loggedInUserId)" class="btn btn-sm btn-primary" (click)="showTransferProductModal(role, product)">Transfer</button>
+                            <!-- <button *ngIf="!(role=='Manufacturer')&& product.product_status == 'Pending'" class="btn btn-sm btn-primary" (click)="recieve(product.id)">Recieve</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="card"  *ngIf="!!(tx_hash)">
+            <div class="card-body">
+                Transaction ref: <a href="{{tx_link}}" target="_blank">{{tx_hash}}</a>
+            </div>
+        </div>
+    </div>
+</div>

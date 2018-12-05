@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Receive Product</h1>
+<div mat-dialog-content>
+  <div class="row">
+      <div class="card card-ex card-blue col-md-12">
+        <!-- <div class="card-separator"></div> -->
+        <!-- <div style="text-align:justify;">
+          <ul>
+            <li>Name: {{data.product_details.name}}</li>
+            <li>Quantity: {{data.product_details.units}}</li>
+            <li>Description: {{data.product_details.description}}</li>
+          </ul>
+        </div> -->
+          <!-- <div *ngIf="data.available_users?.result"> -->
+            <div class="form-group">
+              <label for="receive_pd">Enter Product Id</label>
+              <!-- <select class="form-control input-lg" id="transferTo" matInput [(ngModel)]="data.transferTo" placeholder="Select an Option" name="transferTo">
+                  <option *ngFor="let user of data.available_users.result" style="color:#000" [value]="user.walletAddress">{{user.username}}</option>
+              </select> -->
+              <input type="text" class="form-control input-lg" name="receive_pd" [(ngModel)]="data.receive_pd"/>
+            </div>
+          <!-- </div> -->
+          <div class="card-separator"></div>
+      </div>
+    </div>
+</div>
+<div mat-dialog-actions class="pull-right">
+  <button _ngcontent-c4="" class="btn btn-sm btn-default" (click)="onNoClick()">Close</button>
+  &nbsp;&nbsp;<button class="btn btn-sm btn-info" [mat-dialog-close]="data.receive_pd">Recieve</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Submit</button> -->
+</div>

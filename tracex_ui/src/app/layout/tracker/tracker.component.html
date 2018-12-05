@@ -1,0 +1,41 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Trace Product'" [icon]="'fa-search'"></app-page-header>
+    <div class="col col-lg-12">
+        <div class="row bs-wizard" style="border-bottom:0;">
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{manufacture_status}}">
+                  <div class="text-center bs-wizard-stepnum">Manufacture</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-linode"></i></span>
+                  <div class="bs-wizard-info text-center">xxxxx</div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{warehouse_status}}"><!-- active -->
+                  <div class="text-center bs-wizard-stepnum">Warehouse</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-home"></i></span>
+                  <div class="bs-wizard-info text-center">xxxxx</div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{distributor_status}}"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Distributor</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-truck"></i></span>
+                  <div class="bs-wizard-info text-center">xxxxx</div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{retailer_status}}"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Retailer</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                 <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-stack-exchange"></i></span>
+                  <div class="bs-wizard-info text-center">xxxxx</div>
+                </div>
+
+                <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{consumer_status}}">
+                  <div class="text-center bs-wizard-stepnum">Consumer</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-users"></i></span>
+                  <div class="bs-wizard-info text-center">xxxxx</div>
+                </div> -->
+            </div>
+    </div>
+</div>
+

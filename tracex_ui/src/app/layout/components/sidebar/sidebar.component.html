@@ -1,0 +1,7 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <div class="list-group"  >
+        <a routerLink="{{item.routepath}}" [routerLinkActive]="['router-link-active']" class="list-group-item" *ngFor="let item of menu_items">
+            <i class="fa fa-fw {{item.icon}}"></i>&nbsp;{{ item.label }}
+        </a>
+    </div>
+</nav>

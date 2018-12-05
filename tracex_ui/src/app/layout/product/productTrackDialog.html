@@ -1,0 +1,77 @@
+<h1 mat-dialog-title>Product Tracker</h1>
+<div mat-dialog-content>
+    <div class="row">
+      <div class="card card-ex card-blue col-md-12">
+        <!-- <div class="card-separator"></div> -->
+        <div style="text-align:justify;">
+          <ul>
+            <li>Name: {{data.product_details.name}}</li>
+            <li>Quantity: {{data.product_details.units}}</li>
+            <li>Description: {{data.product_details.description}}</li>
+          </ul>
+        </div>
+        <div class="card-separator"></div>
+      </div>
+
+    </div>
+    <div class="col col-lg-12">
+        <div class="row bs-wizard" style="border-bottom:0;">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{data.trace_details.Manufacturer.status}}">
+              <div class="text-center bs-wizard-stepnum">Manufacture</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-linode"></i></span>
+              <div class="bs-wizard-info text-center"><b>Name:</b> {{data.trace_details.Manufacturer.name}}</div>
+              <div class="bs-wizard-info text-center"><b>Created at:</b> {{data.trace_details.Manufacturer.created_at}}</div>
+              <div class="bs-wizard-info text-center"><b>Sent to:</b> {{data.trace_details.Manufacturer.sent_to}}</div>
+              <div class="bs-wizard-info text-center"><b>Sent at:</b> {{data.trace_details.Manufacturer.sent_at}}</div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{data.trace_details.Warehouse.status}}"><!-- active -->
+              <div class="text-center bs-wizard-stepnum">Warehouse</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-home"></i></span>
+              <div *ngIf="data.trace_details?.Warehouse?.name">
+                <div class="bs-wizard-info text-center"><b>Name:</b> {{data.trace_details.Warehouse.name}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent By:</b> {{data.trace_details.Warehouse.sent_by}}</div>
+                <div class="bs-wizard-info text-center"><b>Recieved at:</b> {{data.trace_details.Warehouse.recieved_at}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent to:</b> {{data.trace_details.Warehouse.sent_to}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent at:</b> {{data.trace_details.Warehouse.sent_at}}</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{data.trace_details.Distributor.status}}"><!-- complete -->
+              <div class="text-center bs-wizard-stepnum">Distributor</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-truck"></i></span>
+              <div *ngIf="data.trace_details.Distributor?.name">
+                <div class="bs-wizard-info text-center"><b>Name:</b> {{data.trace_details.Distributor.name}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent By:</b> {{data.trace_details.Distributor.sent_by}}</div>
+                <div class="bs-wizard-info text-center"><b>Recieved at:</b> {{data.trace_details.Distributor.recieved_at}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent to:</b> {{data.trace_details.Distributor.sent_to}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent at:</b> {{data.trace_details.Distributor.sent_at}}</div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bs-wizard-step {{data.trace_details.Retailer.status}}"><!-- complete -->
+              <div class="text-center bs-wizard-stepnum">Retailer</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <span class="bs-wizard-dot"><i class="fa fa-fw fa-2x fa-stack-exchange"></i></span>
+              <div *ngIf="data.trace_details.Retailer?.name">
+                <div class="bs-wizard-info text-center"><b>Name:</b> {{data.trace_details.Retailer.name}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent By:</b> {{data.trace_details.Retailer.sent_by}}</div>
+                <div class="bs-wizard-info text-center"><b>Recieved at:</b> {{data.trace_details.Retailer.recieved_at}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent to:</b> {{data.trace_details.Retailer.sent_to}}</div>
+                <div class="bs-wizard-info text-center"><b>Sent at:</b> {{data.trace_details.Retailer.sent_at}}</div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions class="pull-right">
+  <button _ngcontent-c4="" class="btn btn-sm btn-info" (click)="onNoClick()"> Close</button>
+</div>
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

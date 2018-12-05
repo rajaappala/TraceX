@@ -1,0 +1,29 @@
+{
+  "bind": {
+    "port": 3050,
+    "host": "0.0.0.0"
+  },
+  "mongo": {
+    "uri": "mongodb://localhost:27017/epedigree"
+  },
+  "admin": {
+    "username": "admin",
+    "email": "admin@ggktech.com",
+    "password": "verystrongpassword"
+  },
+  "network": {
+    "provider": "http://10.218.0.19:8545",
+    "abi_path": "../../../build/contracts/Epedigree.json",
+    "contractAddress": "0x7b0946661fc115e0ec2640558d8e26c4f750f538",
+    "deployer": "0x09bCaF906d86b976ebE02f42C860022BE0182821",
+    "password": "verystrongpassword"
+  },
+  "smtp": {
+    "server": "smtp.gmail.com",
+    "tls_port": "587",
+    "ssl_port": "465",
+    "tls_ssl_required": true,
+    "email": "XXXXX",
+    "password": "XXXX"
+  }
+}

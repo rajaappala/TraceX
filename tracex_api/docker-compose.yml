@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongodb_1
+    restart: always
+    volumes:
+      - epedigree_data:/data/db
+    environment:
+      - MONGODB_DATABASE=epedigree
+    ports:
+      - "27017:27017"
+    networks:
+      - epedigree_ntw
+
+  # ganache-cli:
+  #   image: trufflesuite/ganache-cli:latest
+  #   container_name: ganache-cli_1
+  #   restart: always
+  #   ports:
+  #     - "8545:8545"
+  #   networks:
+  #     - epedigree_ntw
+
+  # epedigree-api:
+  #   image: epedigree_api
+  #   build:
+  #     context: .
+  #     dockerfile: ./webserver/Dockerfile
+  #   restart: always
+  #   ports:
+  #     - "3005:3005"
+  #   command: yarn run dev
+  #   networks:
+  #     - epedigree_ntw
+
+volumes:
+  epedigree_data:
+
+networks:
+  epedigree_ntw:
