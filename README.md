@@ -40,7 +40,7 @@
     
 - Spin up the Mongo Database -> `docker-compose up -d`
 - Spin up the API(webserver)
-  - Goto TraceX/tracex_api/webserver/config/defaults.json and update the details like contract address and deployer public address and remaining as required.
+  - Goto `TraceX/tracex_api/webserver/config/defaults.json` and update the details like contract address and deployer public address and remaining as required.
   - goto terminal and run
     ```
     nvm use 8.11.2
@@ -48,7 +48,7 @@
     npm run dev
     ```
 ### UI Setup
- - Goto TraceX/tracex_ui/src/app/app.config.ts and update API url.
+ - Goto `TraceX/tracex_ui/src/app/app.config.ts` and update API url.
  - Run the following commands
     ```
     nvm use 8.11.2
