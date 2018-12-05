@@ -22,14 +22,22 @@
     ```
     geth --testnet --syncmode "fast" --rpc --rpcapi db,eth,net,web3,personal --cache=1024 --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
     ```
-    please replace 127.0.0.1 with your IP
-    After network is synched, goto tracex_api folder and run `truffle console`
-    create an eth account -> `web3.personal.newAccount('verystrongpassword')`
+    please replace 127.0.0.1 with your IP.
+    
+    After network is synched, goto tracex_api folder and run `truffle console`.
+    
+    create an eth account -> `web3.personal.newAccount('verystrongpassword')`.
+    
     above command will give a public address, please send some faucets(test ethers) to that account.
+    
     unlock the account -> `web3.personal.unlockAccount('XXXXXXXXX public address', 'verystrongpassword', 15000)`
+    
     come out of the console and compile the contracts -> `truffle compile`
-    deploy the contract -> `truffle migrate`(before doing this, please goto TraceX/tracex_api/truffle.js file and update host and from with your own IP and public address you created and unlocked)
+    
+    deploy the contract -> `truffle migrate`(before doing this, please goto TraceX/tracex_api/truffle.js file and update host and from with your own IP and public address you created and unlocked).
+    
     with this you contract will be dployed to ethereum testnet and you will get a contract address.
+    
 - Spin up the Mongo Database -> `docker-compose up -d`
 - Spin up the API(webserver)
   - Goto TraceX/tracex_api/webserver/config/defaults.json and update the details like contract address and deployer public address and remaining as required.
